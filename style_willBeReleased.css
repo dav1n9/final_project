@@ -1,0 +1,153 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap');
+@font-face {
+    font-family: 'NEXON Lv2 Gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+header {
+    width : 100%;
+    height: 70px;
+    text-align: center;
+    background-color :#000000;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+}
+#logo {
+    width: 27%;
+    height: 70px;
+    float: left;
+}
+#logo h1 {
+    font-family: 'Coda Caption', sans-serif;
+    font-size: 50px;
+    color: #fff;
+}
+nav {
+    float: left;
+    width: 73%;
+    text-align: center;
+    font-family: 'NEXON Lv2 Gothic';
+    font-size: 1em;
+    height: 50px;
+    padding-top: 35px;
+    padding-left: 5px;
+}
+
+ul {
+    list-style: none;
+}
+
+#topMenu {
+    height: 60px;
+}
+#topMenu > li {
+    float: left;
+    position: relative;
+    font-size: 1.1em;
+}
+#topMenu > li > a {
+    display: block;
+    color : #fff;
+    text-shadow: 0 1px rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 10px 45px;
+}
+#topMenu > li > a:hover {
+    color: #efb758;;
+    text-shadow: 0 -1px rgb(0, 0, 0);
+}
+#contents {
+    font-family: 'NanumBarunGothic';
+    width: 100%;
+    height: 1100px;
+    display: inline;
+}
+
+#contents > h2 {
+    font-size: 2.3em;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#movie {
+    display: inline-block;
+    width: 500px;
+    height: 320px;
+    border-color: white;
+    border-bottom: gray;
+    border-style: solid;
+    padding: 20px;
+    margin-left: 60px;
+    margin-top: 20px;
+}
+#movie > img {
+    width: 200px;
+    height: 280px;
+    border-radius: 10px;
+    float: left;
+}
+#text {
+    padding-left: 20px;
+    float: left;
+}
+#text > h3 {
+    font-size: 1.5em;
+}
+#text > p {
+    font-size: 1em;
+    padding-bottom: 20px;
+}
+
+input {
+    width: 100px;
+    height: 40px;
+    background-color: white;
+    border: 0.1em solid lightgray;
+
+}
+/*-----footer------*/
+footer {
+    width: 100%;
+    height: 110px;
+    border-top: 2px solid #222;
+    background-color: rgb(241, 241, 241);
+    text-align: center;
+    margin-top: 30px;
+}
+footer h4 {
+    padding-top: 0.8em;
+    padding-bottom: 10px;
+}
+footer h5 {
+    font-size: 0.65em;
+    color :rgb(0, 0, 0)
+}
+
+footer #cp {
+    float: left;
+    padding-left: 50px;
+}

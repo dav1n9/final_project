@@ -1,0 +1,232 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap');
+@font-face {
+    font-family: 'NEXON Lv2 Gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+   }
+   
+   @font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 700;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format('truetype')
+   }
+   
+   @font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 300;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format('truetype');
+   }
+   
+   .nanumbarungothic * {
+    font-family: 'NanumBarunGothic', sans-serif;
+   }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+header {
+    width : 100%;
+    height: 70px;
+    text-align: center;
+    background-color :#000000;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+}
+
+#logo {
+    width: 27%;
+    height: 70px;
+    float: left;
+}
+#logo h1 {
+    font-family: 'Coda Caption', sans-serif;
+    font-size: 50px;
+    color: #fff;
+}
+nav {
+    float: left;
+    width: 73%;
+    text-align: center;
+    font-family: 'NEXON Lv2 Gothic';
+    font-size: 1em;
+    height: 50px;
+    padding-top: 35px;
+    padding-left: 5px;
+}
+ul {
+    list-style: none;
+}
+
+#topMenu {
+    height: 60px;
+}
+#topMenu > li {
+    float: left;
+    position: relative;
+    font-size: 1.1em;
+}
+#topMenu > li > a {
+    display: block;
+    color : #fff;
+    text-shadow: 0 1px rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 10px 45px;
+}
+#topMenu > li > a:hover {
+    color: #efb758;;
+    text-shadow: 0 -1px rgb(0, 0, 0);
+}
+#contents {
+    width: 100%;
+    height: 650px;
+    display: inline;
+    font-family: 'NanumBarunGothic', sans-serif;
+}
+
+
+.movie-container {
+    float: left;
+    position: relative;
+    left: 60px;
+    border-radius: 10px;
+    border : 2px solid lightgray;
+    font-size: 1em;
+    text-align: left;
+    padding: 15px;
+    padding-left: 35px;
+    width: 300px;
+    height: 470px;
+}
+
+.seats {
+    float: left;
+    margin-left: 100px;
+    margin-right: 50px;
+    border : 2px solid lightgray;
+    border-radius: 10px;
+    width: 700px;
+    height: 470px;
+}
+.seat {
+    display: inline;
+    float: right;
+    margin-right: 50px;
+    padding-top: 100px;
+}
+.s_Text {
+    position:relative;
+    left : 50px;
+    top:30px;
+}
+.screen {
+    background-color: rgb(202, 202, 202);
+    width: 600px;
+    height: 50px;
+    position: relative;
+    left : 40px;
+    top: 50px;
+    font-size: 1.3em;
+    text-align: center;
+}
+.screen > p {
+    padding-top: 10px;
+}
+
+#posterImg {
+    border-radius: 15px;
+    
+}
+
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox]+label {
+    cursor: pointer;
+    padding: 20px 25px;
+    margin : 3px;
+    border-radius: 10px 10px 0px 0px;       /*의자모양처럼*/
+    background-repeat: no-repeat;
+    background-image: url('media/노랑.jpg');
+}
+
+input[type=checkbox]:checked+label {
+    
+    border-radius: 10px 10px 0px 0px;
+    background-image: url('media/빨강.jpg');
+}
+
+input[type=checkbox]:disabled+label {
+    border-radius: 10px 10px 0px 0px;
+    background-image: url('media/회색.jpg');
+}
+
+
+#result {
+    margin-top: 30px;
+    position: relative;
+    left: 60px;
+    float: left;
+    border : 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 87%;
+    height: 100px;
+    text-align: center;
+}
+#result > p{
+    font-size: 1.3em;
+}
+
+
+button {
+    position: relative;
+    font-size: 1em;
+    top : 20px;
+    width: 100px;
+    height: 40px;
+    background-color: white;
+    border: 0.1em solid lightgray;
+    margin-right: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+    border-color:#f8585b;
+    border-style: solid;
+}
+
+
+footer {
+    position: relative;
+    top: 700px;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(20, 18, 18);
+}

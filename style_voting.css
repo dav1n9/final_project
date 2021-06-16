@@ -1,0 +1,153 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap');
+@font-face {
+    font-family: 'NEXON Lv2 Gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    margin: 0 auto;
+    width: 1200px;
+}
+header {
+    width : 100%;
+    height: 70px;
+    text-align: center;
+    background-color :#000000;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+}
+#logo {
+    width: 27%;
+    height: 70px;
+    float: left;
+}
+#logo h1 {
+    font-family: 'Coda Caption', sans-serif;
+    font-size: 50px;
+    color: #fff;
+}
+nav {
+    float: left;
+    width: 73%;
+    text-align: center;
+    font-family: 'NEXON Lv2 Gothic';
+    font-size: 1em;
+    height: 50px;
+    padding-top: 35px;
+    padding-left: 5px;
+}
+
+
+ul {
+    list-style: none;
+}
+
+#topMenu {
+    height: 60px;
+}
+#topMenu > li {
+    float: left;
+    position: relative;
+    font-size: 1.1em;
+}
+#topMenu > li > a {
+    display: block;
+    color : #fff;
+    text-shadow: 0 1px rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 10px 45px;
+}
+#topMenu > li > a:hover {
+    color: #efb758;;
+    text-shadow: 0 -1px rgb(0, 0, 0);
+}
+
+
+#contents {
+    font-family: 'NanumBarunGothic';
+    width: 100%;
+    height: 580px;
+    padding-top: 50px;
+}
+
+#contents p {
+    font-size: 2em;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.box{
+    padding-bottom: 20px;
+}
+
+#bestMovie div{
+    display: block;
+    margin :5px;
+    padding-top: 8px;
+    height: 50px;
+    width: 500px;
+    border-radius: 15px;
+    border : 2px solid #bbbbbb;
+    text-align : center;
+    margin: 0 auto;
+    font-size: 1.3em;
+    background-color :rgb(245, 245, 240);
+}
+button {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    border : none;
+    padding: 20px;
+    background-color: transparent;
+    color: #000;
+    font-weight: 800;
+    font-size: 24px;
+    opacity: 0.5;
+}
+
+#prev {
+    left: 0;
+}
+#next {
+    right : 0;
+}
+button:hover {
+    background-color: #222;
+    color: #fff;
+    opacity: 0.6;
+    cursor: pointer;
+}
+button:focus {
+    outline: 0;
+}
+input {
+    position: relative;
+    left : 550px;
+    top : 30px;
+    font-size: 1em;
+    width: 100px;
+    height: 40px;
+    background-color: white;
+    border: 0.1em solid lightgray;
+
+}

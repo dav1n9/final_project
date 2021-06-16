@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+@font-face {
+    font-family: 'SEBANG_Gothic_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NEXON Lv2 Gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#container {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+header {
+    width : 100%;
+    height: 100px;
+    text-align: center;
+    background-color :#000000;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+}
+
+#logo {
+    float : left;
+    position: relative;
+    top: 10px;
+    left: 20px;
+    width: 250px;
+    height: 100px;
+}
+
+#logo h1 {
+    font-family: 'Coda Caption', sans-serif;
+    font-weight: 700;
+    font-size: 60px;
+    color: #ffffff;
+    font-size: 3em;
+}
+nav {
+    float: right;
+    font-family: 'NEXON Lv2 Gothic';
+    padding-top: 30px;
+    width : 900px;
+    height: 100px;
+}
+
+ul {
+    list-style: none;
+}
+
+#topMenu {
+    font-size: 1.2em;
+    height: 60px;  
+}
+#topMenu > li {
+    float: left;
+    position: relative;
+}
+#topMenu > li > a {
+    display: block;
+    color : #fff;
+    font-weight: 600;
+    padding: 10px 60px;
+}
+#topMenu > li > a:hover {
+    color: #efb758;
+    text-shadow: 0 -1px rgb(0, 0, 0);
+}
+#topMenu > li > ul {
+    display: none;
+    position: absolute;
+    width: 160px;
+    background-color: rgba(255, 255, 255, 0.6);
+    left: 0;
+    margin: 0;
+    right :20px;
+}
+#topMenu > li > ul > li{
+    padding: 10px 10px 10px 30px;
+}
+
+#topMenu > li > ul > li > a{
+    font-size: 140px;
+    padding: 10px;
+    color: #000;
+    font-size: 1em;
+}
+
+#topMenu > li:hover > ul{
+    display: block;
+    z-index: 10;
+}
+
+#topMenu > li > ul > li > a:hover{
+    color: #f00;
+}
+
+#slideImg {
+    clear: both;
+    width : 100%;
+    height : 500px;
+    overflow : hidden; /*영역 넘치면 감출 */
+    position: relative;
+    
+}
+#slides {
+    position :absolute;
+}
+#slides > img {
+    width : 100%;
+    float: left;
+    position: relative;
+    /*opacity: 0.8;*/
+
+}
+
+#text {
+    position: absolute;
+    width: 100%;
+    padding : 300px;
+    padding-top : 330px;
+    color: #fff;
+    font-size: 2.5em;
+    text-align: center;
+    font-family: 'SEBANG_Gothic_Bold';
+    background: linear-gradient(to bottom, rgba(0, 0, 0,0)15%,
+    rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 0.7) 65%, rgba(0, 0, 0, 1.0) 65%), url();
+}
+
+button {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    border : none;
+    padding: 20px;
+    background-color: transparent;
+    color: #000;
+    font-weight: 800;
+    font-size: 24px;
+    opacity: 0.5;
+}
+
+#prev {
+    left: 0;
+}
+#next {
+    right : 0;
+}
+button:hover {
+    background-color: #222;
+    color: #fff;
+    opacity: 0.6;
+    cursor: pointer;
+}
+button:focus {
+    outline: 0;
+}
+
+#contents {
+    width: 100%;
+    height: 238px;
+}
+
+#tabMenu {
+    float : left;
+    width: 450px;
+    background-color: #f7f6ee;
+}
+
+.item {
+    padding: 20px;
+}
+
+.item #eventButton2 {
+    position: relative;
+    left: 180px;
+    font-family: 'Cafe24SsurroundAir';
+    font-size: 2em;
+}
+
+#tabMenu h1 {
+    font-family: 'Jua', sans-serif;
+    font-size: 3em;
+}
+#tabMenu p {
+    font-family: 'Jua', sans-serif;
+}
+
+#tabMenu input {
+    width: 222px;
+    font-size: 2em;
+    border: none;
+    opacity: 0.5;
+}
+
+#eventButton {
+    position:relative;
+    left: 90px;
+    width : 80px;
+    font-family: 'Jua', sans-serif;
+}
+
+#links {
+    float: right;
+    padding: 20px;
+    width: 750px;
+    height: 100%;
+    border: 0.1em solid rgb(253, 242, 234);
+    border-radius: 5px;
+    /*색깔정하기*/
+    background-color: rgb(253, 242, 234);
+}
+#links > #preview {
+    display: inline-block;
+}
+
+#links h2 {
+    font-size: 3em;
+    font-family: 'Staatliches', cursive;
+}
+
+#links img {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 230px; 
+    height: 140px;
+}
+
+#links p {
+    font-family: 'NEXON Lv2 Gothic';
+    padding-top: 5px;
+    padding-bottom: 10px;
+    font-size: 0.9em;
+}
+
+#links input {
+    width: 100px;
+    height: 25px;
+    background-color: white;
+    border: 0.1em solid lightgray;
+    opacity: 0.7;
+}
+
+#preview {
+    text-align: center;
+}
+
+#news {
+    width: 100%;
+    text-align: center;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+
+#news span {
+    font-size: 2em;
+    text-align: center;
+}
+/*-----footer------*/
+footer {
+    width: 100%;
+    height: 120px;
+    border-top: 2px solid #222;
+    background-color: rgb(255, 255, 255);
+    padding-top: 5px;
+}
+#f #bottomImg{
+    display: inline-block;
+    position: relative;
+    left: 300px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#bottomImg > img {
+    overflow: hidden;
+}
+#bottomImg > p {
+    text-align: center;
+    font-family: 'NEXON Lv2 Gothic';
+    font-size: 1em;
+}
+
+#bottomMenu{
+    text-align: center;
+    font-family: 'NEXON Lv2 Gothic';
+}
+#bottomMenu ul li{
+    display: inline-block;
+    list-style-type: none;
+    padding: 0px 15px;
+    padding-bottom: 10px;
+}

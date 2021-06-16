@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="style_timeTable.css" type="text/css" rel="stylesheet">
+    <title>기말 프로젝트</title>
+</head>
+<script>
+    function mclick(num) {
+        var chk = confirm("영화를 예매하시겠습니까?");
+        if(chk) {
+            window.open("bookingMovie.html");
+        }
+    }
+    function mover(num) {
+        var m = document.getElementById("time" + num);
+        m.style.borderColor = "red";
+        m.style.color = "gray";
+        m.innerHTML = "예매"
+    }
+    function mout(num, time) {
+        var m = document.getElementById("time" + num);
+        m.style.borderColor = "rgb(165, 165, 165)";
+        m.style.color = "black";
+        m.innerHTML = time;
+    }
+</script>
+
+<body>
+    <div id="container">
+        <header>
+            <div id="logo">
+                <a href="index.html">
+                    <h1>CINEMA</h1>
+                </a>
+            </div>
+            <nav>
+                <ul id="topMenu">
+                    <li><a href="releasedFilm.html" target="_self">예매순위</a></li>
+                    <li><a href="willBeReleased.html" target="_self">개봉예정작</a></li>
+                    <li><a href="bookingMovie.html" target="_self">영화예매</a></li>
+                    <li><a href="timeTable.html" target="_self" style="color:#efb758; background-color: rgb(255, 255, 255); text-shadow: none;">상영시간표</a></li>
+                    <li><a href="voting.html" target="_self">금주의 영화</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="contents">
+            <table>
+                <tr>
+                    <td id = "movieName" rowspan=3>크루엘라</td>
+                    <td id = "place">1관</td>
+                    <td id="time1" onclick="mclick(1)" onmouseover="mover(1)" onmouseout="mout(1, '12:15')">
+                        12:15</td>
+                    <td id="time2" onclick="mclick(2)" onmouseover="mover(2)" onmouseout="mout(2, '16:50')">
+                        16:50</td>
+                    <td id="time3" onclick="mclick(3)" onmouseover="mover(3)" onmouseout="mout(3, '21:25')">
+                        21:25</td>
+                </tr>
+                <tr>
+                    <td id = "place">4관</td>
+                    <td id="time4" onclick="mclick(4)" onmouseover="mover(4)" onmouseout="mout(4, '15:10')">
+                        15:10</td>
+                    <td id="time5" onclick="mclick(5)" onmouseover="mover(5)" onmouseout="mout(5, '20:30')">
+                        20:30</td>
+                </tr>
+                <tr>
+                    <td  id = "place">7관</td>
+                    <td id="time6" onclick="mclick(6)" onmouseover="mover(6)" onmouseout="mout(6, '09:10')">
+                        09:10</td>
+                    <td id="time7" onclick="mclick(7)" onmouseover="mover(7)" onmouseout="mout(7, '11:30')">
+                        11:30</td>
+                    <td id="time8" onclick="mclick(8)" onmouseover="mover(8)" onmouseout="mout(8, '17:40')">
+                        17:40</td>
+                    <td id="time9" onclick="mclick(9)" onmouseover="mover(9)" onmouseout="mout(9, '22:00')">
+                        22:00</td>
+                </tr>
+
+                <tr>
+                    <td id = "movieName" rowspan=2>컨저링</td>
+                    <td id = "place">1관</td>
+                    <td id="time10" onclick="mclick(10)" onmouseover="mover(10)" onmouseout="mout(10, '11:40')">
+                        11:40</td>
+                    <td id="time11" onclick="mclick(11)" onmouseover="mover(11)" onmouseout="mout(11, '14:20')">
+                        14:20</td>
+                    <td id="time12" onclick="mclick(12)" onmouseover="mover(12)" onmouseout="mout(12, '21:05')">
+                        21:05</td>
+                </tr>
+                <tr>
+                    <td id = "place">4관</td>
+                    <td id="time13" onclick="mclick(13)" onmouseover="mover(13)" onmouseout="mout(13, '10:30')">
+                        10:30</td>
+                    <td id="time14" onclick="mclick(14)" onmouseover="mover(14)" onmouseout="mout(14, '14:50')">
+                        14:50</td>
+                    <td id="time15" onclick="mclick(15)" onmouseover="mover(15)" onmouseout="mout(15, '19:45')">
+                        19:45</td>
+                </tr>
+
+
+                <tr>
+                    <td id = "movieName" rowspan=4>캐시트럭</td>
+                    <td id = "place">1관</td>
+                    <td id="time16" onclick="mclick(16)" onmouseover="mover(16)" onmouseout="mout(16, '09:40')">
+                        09:40</td>
+                    <td id="time17" onclick="mclick(17)" onmouseover="mover(17)" onmouseout="mout(17, '13:00')">
+                        13:00</td>
+                    <td id="time18" onclick="mclick(18)" onmouseover="mover(18)" onmouseout="mout(18, '17:15')">
+                        17:15</td>
+                    <td id="time19" onclick="mclick(19)" onmouseover="mover(19)" onmouseout="mout(19, '22:30')">
+                        22:30</td>
+                </tr>
+                <tr>
+                    <td id = "place">4관</td>
+                    <td id="time20" onclick="mclick(20)" onmouseover="mover(20)" onmouseout="mout(20, '10:20')">
+                        10:20</td>
+                    <td id="time21" onclick="mclick(21)" onmouseover="mover(21)" onmouseout="mout(21, '14:35')">
+                        14:35</td>
+                    <td id="time22" onclick="mclick(22)" onmouseover="mover(22)" onmouseout="mout(22, '18:05')">
+                        18:05</td>
+                    <td id="time23" onclick="mclick(23)" onmouseover="mover(23)" onmouseout="mout(23, '23:50')">
+                        23:50</td>
+                </tr>
+                <tr>
+                    <td id = "place">7관</td>
+                    <td id="time24" onclick="mclick(24)" onmouseover="mover(24)" onmouseout="mout(24, '11:15')">
+                        11:15</td>
+                    <td id="time25" onclick="mclick(25)" onmouseover="mover(25)" onmouseout="mout(25, '19:40')">
+                        19:40</td>
+                    <td id="time26" onclick="mclick(26)" onmouseover="mover(26)" onmouseout="mout(26, '21:20')">
+                        21:20</td>
+                </tr>
+                <tr>
+                    <td id = "place">9관</td>
+                    <td id="time27" onclick="mclick(27)" onmouseover="mover(27)" onmouseout="mout(27, '08:50')">
+                        08:50</td>
+                    <td id="time28" onclick="mclick(28)" onmouseover="mover(28)" onmouseout="mout(28, '14:35')">
+                        14:35</td>
+                    <td id="time29" onclick="mclick(29)" onmouseover="mover(29)" onmouseout="mout(29, '17:05')">
+                        17:05</td>
+                    <td id="time30" onclick="mclick(30)" onmouseover="mover(30)" onmouseout="mout(30, '23:40')">
+                        23:40</td>
+                </tr>
+                <tr>
+                    <td id = "movieName" rowspan=2>아야와 마녀</td>
+                    <td id = "place">1관</td>
+                    <td id="time30" onclick="mclick(30)" onmouseover="mover(30)" onmouseout="mout(30, '11:25')">
+                        11:25</td>
+                    <td id="time31" onclick="mclick(31)" onmouseover="mover(31)" onmouseout="mout(31, '15:40')">
+                        15:40</td>
+                    <td id="time32" onclick="mclick(32)" onmouseover="mover(32)" onmouseout="mout(32, '18:05')">
+                        18:05</td>
+                    <td id="time33" onclick="mclick(33)" onmouseover="mover(33)" onmouseout="mout(33, '19:55')">
+                        19:55</td>
+                </tr>
+                <tr>
+                    <td id = "place">4관</td>
+                    <td id="time34" onclick="mclick(34)" onmouseover="mover(34)" onmouseout="mout(34, '12:10')">
+                        12:10</td>
+                    <td id="time35" onclick="mclick(35)" onmouseover="mover(35)" onmouseout="mout(35, '16:40')">
+                        16:40</td>
+                    <td id="time36" onclick="mclick(36)" onmouseover="mover(36)" onmouseout="mout(36, '22:15')">
+                        22:15</td>
+                </tr>
+
+                <tr>
+                    <td id = "movieName" rowspan=2>파이프라인</td>
+                    <td id = "place">1관</td>
+                    <td id="time37" onclick="mclick(37)" onmouseover="mover(37)" onmouseout="mout(37, '10:15')">
+                        10:15</td>
+                    <td id="time38" onclick="mclick(38)" onmouseover="mover(38)" onmouseout="mout(38, '14:20')">
+                        14:20</td>
+                    <td id="time39" onclick="mclick(39)" onmouseover="mover(39)" onmouseout="mout(39, '20:50')">
+                        20:50</td>
+                </tr>
+                <tr>
+                    <td id = "place">4관</td>
+                    <td id="time40" onclick="mclick(40)" onmouseover="mover(40)" onmouseout="mout(40, '13:35')">
+                        13:35</td>
+                    <td id="time41" onclick="mclick(41)" onmouseover="mover(41)" onmouseout="mout(41, '17:10')">
+                        17:10</td>
+                </tr>
+
+                <tr>
+                    <td id = "movieName" >낫아웃</td>
+                    <td id = "place">1관</td>
+                    <td id="time42" onclick="mclick(42)" onmouseover="mover(42)" onmouseout="mout(42, '09:15')">
+                        09:15</td>
+                    <td id="time43" onclick="mclick(43)" onmouseover="mover(43)" onmouseout="mout(43, '13:30')">
+                        13:30</td>
+                    <td id="time44" onclick="mclick(44)" onmouseover="mover(44)" onmouseout="mout(44, '15:15')">
+                        15:15</td>
+                    <td id="time45" onclick="mclick(45)" onmouseover="mover(45)" onmouseout="mout(45, '19:40')">
+                        19:40</td>
+                </tr>
+
+                <tr>
+                    <td id = "movieName" >500일의 썸머</td>
+                    <td id = "place">1관</td>
+                    <td id="time46" onclick="mclick(46)" onmouseover="mover(46)" onmouseout="mout(46, '11:35')">
+                        11:35</td>
+                    <td id="time47" onclick="mclick(47)" onmouseover="mover(47)" onmouseout="mout(47, '16:10')">
+                        16:10</td>
+                    <td id="time48" onclick="mclick(48)" onmouseover="mover(48)" onmouseout="mout(48, '22:20')">
+                        22:20</td>
+                </tr>
+                
+            </table>
+
+        </div>
+
+        <footer>
+        </footer>
+    </div>
+</body>
+
+</html>

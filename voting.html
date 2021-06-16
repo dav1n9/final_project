@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="style_voting.css" type="text/css" rel="stylesheet">
+    <title>기말 프로젝트</title>
+
+    <style>
+        div.item:nth-child(1) { background: rgba(242, 241, 243, 0.89); border-radius: 10px;}
+        div.item:nth-child(2) { background: rgba(242, 241, 243, 0.89); border-radius: 10px; }
+        div.item:nth-child(3) { background-color: rgba(242, 241, 243, 0.89); border-radius: 10px; }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 변수를 선언합니다.
+            var width = $('[data-role="slider"]').attr('data-width');
+            var height = $('[data-role="slider"]').attr('data-height');
+            var count = $('[data-role="slider"] div.item').length;
+            
+            // 스타일을 적용합니다.
+            $('[data-role="slider"]').css({
+                position: 'relative',
+                overflow: 'hidden',
+                width: width,
+                height: height
+            }).find('.box').css({
+                position: 'absolute',
+                width: count * width,
+                overflow: 'hidden'
+            }).find('.item').css({
+                width: width,
+                height: height,
+                float: 'left'
+            });
+            // 변수를 선언합니다.
+            var currentPage = 0;
+            var changePage = function () {
+                $('[data-role="slider"] > .box').animate({
+                    left: -currentPage * width
+                }, 500);
+            };
+            // 이벤트를 연결합니다.
+            $('#prev').click(function () {
+                if (currentPage > 0) {
+                    // 왼쪽으로 이동
+                    currentPage = currentPage - 1;
+                    changePage();
+                }
+            });
+            $('#next').click(function () {
+                if (currentPage < count - 1) {
+                    // 오른쪽으로 이동
+                    currentPage = currentPage + 1;
+                    changePage();
+                }
+            });
+        });
+    </script>
+
+    <script>
+        function changeColor(num) {
+            var m = document.getElementById("c" + num);
+            m.style.borderColor = "#db0d36";
+        }
+        function changeColor2(num) {
+            var m = document.getElementById("c" + num);
+            m.style.borderColor = "#bbbbbb";
+        }
+
+        // 일단 0으로 저장. q1
+        localStorage.setItem("콰이어트 플레이스2", "15");
+        localStorage.setItem("발신제한", "2");
+        localStorage.setItem("여고괴담", "5");
+        localStorage.setItem("킬러의 보디가드2", "10");
+        localStorage.setItem("그 여름, 가장 차가웠던", "7");
+        //q2
+        localStorage.setItem("콜 미 바이 유어 네임", "9");
+        localStorage.setItem("맘마미아", "5");
+        localStorage.setItem("500일의 썸머", "13");
+        localStorage.setItem("8월의 크리스마스", "10");
+        localStorage.setItem("부산행", "3");
+        //q3
+        localStorage.setItem("그랜드 부다페스트 호텔", "4");
+        localStorage.setItem("비긴어게인", "12");
+        localStorage.setItem("이터널 선샤인", "6");
+        localStorage.setItem("위플래쉬", "2");
+        localStorage.setItem("다크나이트 트릴로지", "8");
+
+            
+        function vote_q1(name) {
+            let isTheMovie = confirm(name + "을 투표하겠습니까?");
+            if (isTheMovie) {
+                alert(name + "을/를 투표하였습니다.");
+                var count = parseInt(localStorage.getItem(name));
+                count++;
+                localStorage.setItem(name, count+"");
+            }
+        }
+
+        function vote_q2(name) {
+            let isTheMovie = confirm(name + "을 투표하겠습니까?");
+            if (isTheMovie) {
+                alert(name + "을/를 투표하였습니다.");
+                var count = parseInt(localStorage.getItem(name));
+                count++;
+                localStorage.setItem(name, count+"");
+            }
+        }
+
+        function vote_q3(name) {
+            let isTheMovie = confirm(name + "을 투표하겠습니까?");
+            if (isTheMovie) {
+                alert(name + "을/를 투표하였습니다.");
+                var count = parseInt(localStorage.getItem(name));
+                count++;
+                localStorage.setItem(name, count+"");
+            }
+        }
+        //첫번째 투표 결과 보이기
+        function result_q1() {
+            var m = document.getElementById("bestMovie");
+            m.style.textAlign="left";
+            var q1 = document.getElementById("q1_1");
+            q1.style.display = '';
+            q1.value = parseInt(localStorage.getItem("콰이어트 플레이스2"));
+
+            var q2 = document.getElementById("q1_2");
+            q2.style.display = '';
+            q2.value = parseInt(localStorage.getItem("발신제한"));
+
+            var q3 = document.getElementById("q1_3");
+            q3.style.display = '';
+            q3.value = parseInt(localStorage.getItem("여고괴담"));
+
+            var q4 = document.getElementById("q1_4");
+            q4.style.display = '';
+            q4.value = parseInt(localStorage.getItem("킬러의 보디가드2"));
+
+            var q5 = document.getElementById("q1_5");
+            q5.style.display = '';
+            q5.value = parseInt(localStorage.getItem("그 여름, 가장 차가웠던"));
+        }
+        
+        //두번째 투표 결과 보이기
+        function result_q2() {
+            var q1 = document.getElementById("q2_1");
+            q1.style.display = '';
+            q1.value = parseInt(localStorage.getItem("콜 미 바이 유어 네임"));
+
+            var q2 = document.getElementById("q2_2");
+            q2.style.display = '';
+            q2.value = parseInt(localStorage.getItem("맘마미아"));
+
+            var q3 = document.getElementById("q2_3");
+            q3.style.display = '';
+            q3.value = parseInt(localStorage.getItem("500일의 썸머"));
+
+            var q4 = document.getElementById("q2_4");
+            q4.style.display = '';
+            q4.value = parseInt(localStorage.getItem("8월의 크리스마스"));
+
+            var q5 = document.getElementById("q2_5");
+            q5.style.display = '';
+            q5.value = parseInt(localStorage.getItem("부산행"));
+        }
+
+        //세번째 투표 결과 보이기
+        function result_q3() {
+            var q1 = document.getElementById("q3_1");
+            q1.style.display = '';
+            q1.value = parseInt(localStorage.getItem("그랜드 부다페스트 호텔"));
+
+            var q2 = document.getElementById("q3_2");
+            q2.style.display = '';
+            q2.value = parseInt(localStorage.getItem("비긴어게인"));
+
+            var q3 = document.getElementById("q3_3");
+            q3.style.display = '';
+            q3.value = parseInt(localStorage.getItem("이터널 선샤인"));
+
+            var q4 = document.getElementById("q3_4");
+            q4.style.display = '';
+            q4.value = parseInt(localStorage.getItem("위플래쉬"));
+
+            var q5 = document.getElementById("q3_5");
+            q5.style.display = '';
+            q5.value = parseInt(localStorage.getItem("다크나이트 트릴로지"));
+        }
+    </script>
+</head>
+
+
+<body>
+    <div id="container">
+        <header>
+            <div id="logo">
+                <a href="index.html">
+                    <h1>CINEMA</h1>
+                </a>
+            </div>
+            <nav>
+                <ul id="topMenu">
+                    <li><a href="releasedFilm.html" target="_self">예매순위</a></li>
+                    <li><a href="willBeReleased.html" target="_self">개봉예정작</a></li>
+                    <li><a href="bookingMovie.html" target="_self">영화예매</a></li>
+                    <li><a href="timeTable.html" target="_self">상영시간표</a></li>
+                    <li><a href="voting.html" target="_self" style="color:#efb758; background-color: rgb(255, 255, 255); text-shadow: none;">금주의 영화</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="contents">
+            <div data-role="slider" data-width="1200" data-height="480">
+                <div class="box">
+                    <div class="item">
+                        <p> 개봉예정작 중 가장 기대되는 작품은?</p>
+                        <br>
+                        <div id="bestMovie">
+                            <div id="c11" onmouseover="changeColor(11)" onmouseout="changeColor2(11)" onclick="vote_q1('콰이어트 플레이스2')">
+                                콰이어트 플레이스2 <meter id="q1_1" min="0" max="20" value="" style="display: none; float: right;"></meter></div>
+                            <br>
+                            <div id="c12" onmouseover="changeColor(12)" onmouseout="changeColor2(12)" onclick="vote_q1('발신제한')">
+                                발신제한 <meter id="q1_2" min="0" max="20" value="" style="display: none; float: right;"></meter></div>
+                            <br>
+                            <div id="c13" onmouseover="changeColor(13)" onmouseout="changeColor2(13)" onclick="vote_q1('여고괴담')">
+                                여고괴담 <meter id="q1_3" min="0" max="20" value="" style="display: none; float: right;"></meter></div>
+                            <br>
+                            <div id="c14" onmouseover="changeColor(14)" onmouseout="changeColor2(14)" onclick="vote_q1('킬러의 보디가드2')">
+                                킬러의 보디가드2 <meter id="q1_4" min="0" max="20" value="" style="display: none; float: right;"></meter></div>
+                            <br>
+                            <div id="c15" onmouseover="changeColor(15)" onmouseout="changeColor2(15)" onclick="vote_q1('그 여름, 가장 차가웠던')">
+                                그 여름, 가장 차가웠던 <meter id="q1_5" min="0" max="20" value="" style="display: none; float: right;"></meter></div>
+                        </div>
+                        <div>
+                            <input type="button" value="결과보기" onclick="result_q1()"></input>
+                            <br><br>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <p>'여름' 하면 생각나는 영화는?</p>
+                        <br>
+                        <div id="bestMovie">
+                            <div id="c21" onmouseover="changeColor(21)" onmouseout="changeColor2(21)"
+                                onclick="vote_q2('콜 미 바이 유어 네임')">콜 미 바이 유어 네임 <meter id="q2_1" min="0" max="20" value="" style="display: none; float: right;"></meter></div>
+                            <br>
+                            <div id="c22" onmouseover="changeColor(22)" onmouseout="changeColor2(22)" onclick="vote_q2('맘마미아')">
+                                맘마미아 <meter id="q2_2" min="0" max="20" value="" style="display: none; float: right;"></meter></div>
+                            <br>
+                            <div id="c23" onmouseover="changeColor(23)" onmouseout="changeColor2(23)" onclick="vote_q2('500일의 썸머')">
+                                500일의 썸머 <meter id="q2_3" min="0" max="20" value="" style="display: none; float: right;"></meter></div>
+                            <br>
+                            <div id="c24" onmouseover="changeColor(24)" onmouseout="changeColor2(24)" onclick="vote_q2('8월의 크리스마스')">
+                                8월의 크리스마스 <meter id="q2_4" min="0" max="20" value="" style="display: none; float: right;"></meter></div>
+                            <br>
+                            <div id="c25" onmouseover="changeColor(25)" onmouseout="changeColor2(25)" onclick="vote_q2('부산행')">
+                                부산행 <meter id="q2_5" min="0" max="20" value="" style="display: none; float: right;"></meter></div>
+                        </div>
+                        <div>
+                            <input type="button" value="결과보기" onclick="result_q2()"></input>
+                            <br><br>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <p> 지금 극장에서 다시 보고싶은 영화는? </p>
+                        <br>
+                        <div id="bestMovie">
+                            <div id="c1" onmouseover="changeColor(1)" onmouseout="changeColor2(1)"
+                                onclick="vote_q3('그랜드 부다페스트 호텔')">그랜드 부다페스트 호텔 <meter id="q3_1" min="0" max="20" value="" style="display: none; float: right;"></meter></div>
+                            <br>
+                            <div id="c2" onmouseover="changeColor(2)" onmouseout="changeColor2(2)" onclick="vote_q3('비긴어게인')">
+                                비긴어게인 <meter id="q3_2" min="0" max="20" value="" style="display: none; float: right;"></meter></div>
+                            <br>
+                            <div id="c3" onmouseover="changeColor(3)" onmouseout="changeColor2(3)" onclick="vote_q3('이터널 선샤인')">
+                                이터널 선샤인 <meter id="q3_3" min="0" max="20" value="" style="display: none; float: right;"></meter></div>
+                            <br>
+                            <div id="c4" onmouseover="changeColor(4)" onmouseout="changeColor2(4)" onclick="vote_q3('위플래쉬')">
+                                위플래쉬 <meter id="q3_4" min="0" max="20" value="" style="display: none; float: right;"></meter></div>
+                            <br>
+                            <div id="c5" onmouseover="changeColor(5)" onmouseout="changeColor2(5)" onclick="vote_q3('다크나이트 트릴로지')">
+                                다크나이트 트릴로지 <meter id="q3_5" min="0" max="20" value="" style="display: none; float: right;"></meter></div>
+                        </div>
+                        <div>
+                            <input type="button" value="결과보기" onclick="result_q3()"></input>
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+                
+            <button id="prev">←</button>
+            <button id="next">→</button>
+            </div>
+
+
+        </div>
+
+        <footer>
+        </footer>
+    </div>
+</body>
+
+</html>

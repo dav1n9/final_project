@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="main_style.css" type="text/css" rel="stylesheet">
+    <title>기말 프로젝트</title>
+
+    <style>
+        @font-face {
+            font-family: 'twaysky';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twaysky.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'SDSamliphopangche_Outline';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        div.item:nth-child(1) {
+            background: linear-gradient(to bottom, rgb(255, 119, 119), #ffd987)
+        }
+
+        div.item:nth-child(2) {
+            background: linear-gradient(to right, #ffd987, rgb(199, 144, 245));
+        }
+
+        div.item:nth-child(3) {
+            background: linear-gradient(45deg, rgb(89, 245, 180), rgb(129, 195, 233));
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 변수를 선언합니다.
+            var width = $('[data-role="slider"]').attr('data-width');
+            var height = $('[data-role="slider"]').attr('data-height');
+            var count = $('[data-role="slider"] div.item').length;
+
+            // 스타일을 적용합니다.
+            $('[data-role="slider"]').css({
+                position: 'relative',
+                overflow: 'hidden',
+                width: width,
+                height: height
+            }).find('.container').css({
+                position: 'absolute',
+                width: count * width,
+                overflow: 'hidden'
+            }).find('.item').css({
+                width: width,
+                height: height,
+                float: 'left'
+            });
+            // 변수를 선언합니다.
+            var currentPage = 0;
+            var changePage = function () {
+                $('[data-role="slider"] > .container').animate({
+                    left: -currentPage * width
+                }, 500);
+            };
+            // 이벤트를 연결합니다.
+            $('#left-button').click(function () {
+                if (currentPage > 0) {
+                    // 왼쪽으로 이동
+                    currentPage = currentPage - 1;
+                    changePage();
+                }
+            });
+            $('#right-button').click(function () {
+                if (currentPage < count - 1) {
+                    // 오른쪽으로 이동
+                    currentPage = currentPage + 1;
+                    changePage();
+                }
+            });
+        });
+    </script>
+    <script>
+        var images = [];
+        images[0] = "media/캐시트럭 메인.jpg";
+        images[1] = "media/What ‘500 Days Of Summer’ Teaches Us About Chasing What Can’t Be Ours.jpg";
+        images[2] = "media/분노의질주스틸컷.jpg";
+        images[3] = "media/크루엘라스틸컷.jpg";
+        images[4] = "media/메인화면/아야와 마녀.jpg";
+
+
+        var text = [];
+        text[0] = "<small>가이 리치 X 제이슨 스타뎀</small><br><big>캐시트럭</big>";
+        text[1] = "<small>로맨스 영화의 고전 -재개봉</small><br><big>500일의 썸머</big>"
+        text[2] = "<small>역대 최고 액션 영화</small><br><big>분노의 질주</big>";
+        text[3] = "<small>예매율1위</small><br><big>크루엘라</big>";
+        text[4] = "<small>스튜디오 지브리 첫 3D</small><br><big>아야와 마녀</big>";
+
+        var x = -1;
+
+        // 메인화면 이미지 3초마다 바뀜.
+        var timer = setInterval("displayNextImage()", 3000);
+        function displayNextImage() {
+            x = (x == images.length - 1) ? 0 : x + 1;
+            document.getElementById("mainImg").src = images[x];
+            var m = document.getElementById("text");
+            m.innerHTML = text[x];
+        }
+
+        function displayPreviousImage() {
+            x = (x <= 0) ? images.length - 1 : x - 1;
+            document.getElementById("mainImg").src = images[x];
+            var m = document.getElementById("text");
+            m.innerHTML = text[x];
+        }
+
+        // 메인화면 공지사항 텍스트 회전
+        var timer2 = setInterval("doRotate()", 200);
+
+        function doRotate() {
+            var span = document.getElementById("span");
+            var str = span.innerHTML;
+            var firstChar = str.substr(0, 1);
+            var remains = str.substr(1, str.length - 1);
+            str = remains + firstChar;
+            span.innerHTML = str;
+        }
+
+        function event3() {
+            alert("이벤트 준비 중 입니다..");
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <div id="logo">
+                <a href="index.html">
+                    <h1>CINEMA</h1>
+                </a>
+            </div>
+            <nav>
+                <ul id="topMenu">
+                    <li>
+                        <a href="#">영화</a>
+                        <ul>
+                            <li><a href="releasedFilm.html" target="_self">예매순위</a></li>
+                            <li><a href="willBeReleased.html" target="_self">개봉예정작</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="bookingMovie.html" target="_self">영화예매</a></li>
+                    <li><a href="timeTable.html" target="_self">상영시간표</a></li>
+                    <li><a href="voting.html" target="_self">금주의 영화</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="slideImg">
+            <div id="slides">
+                <img id="mainImg" src="media\분노의질주스틸컷.jpg" alt="인기상영작">
+                <div id="text">
+                    <small>새로운 시즌</small><br><big>분노의 질주</big>
+                </div>
+                <button id="prev" onclick="displayPreviousImage()">&lang;</button>
+                <button id="next" onclick="displayNextImage()">&rang;</button>
+            </div>
+        </div>
+        <div id="contents">
+            <div id="tabMenu">
+                <div data-role="slider" data-width="450" data-height="200">
+                    <div class="container">
+                        <div class="item">
+                            <br>
+                            <p style="font-size: 1em; text-align: center;">티켓 & 매점 세트 최대 44% 할인</p>
+                            <h1 style="font-size: 4em; text-align: center; font-family: 'twaysky'">반&nbsp값&nbsp티&nbsp켓
+                            </h1>
+                        </div>
+                        <div class="item">
+                            <br>
+                            <h1 style=" font-family: 'SDSamliphopangche_Outline'; font-size: 4em; color: rgb(31, 31, 31);">영화 설문 이벤트</h1>
+                            <p>추첨을 통해 2인 영화 예매권 증정!</p>
+                            <p>기간 : ~06월 23일</p>
+                            <a href="voting.html"><input type="button" value="참여하기" id="eventButton2"></input></a>
+                        </div>
+                        <div class="item">
+                            <h1 style="font-size: 3em; ">매일 <span style="color: rgb(235, 121, 140);">출석</span>&nbsp하고
+                            </h1>
+                            <h1 style="font-size: 3em; float: right;"><span style="color: burlywood;">혜택</span> 받자!!
+                            </h1>
+                            <p style="font-size: 1.5em; ">출석부 이벤트</p>
+                            <input type="button" value="참여하기" id="eventButton" onclick="event3()"></input>
+                        </div>
+                    </div>
+                </div>
+                <input type="button" value="←" id="left-button">
+                <input type="button" value="→" id="right-button">
+
+            </div>
+            <div id="links">
+                <div id="preview">
+                    <img src="media/메인화면/크루엘라.jpg">
+                    <p>크루엘라 캐릭터 영상</p>
+                    <a href="https://movie.naver.com/movie/bi/mi/mediaView.nhn?code=187322&mid=49605" target="_blank"><input type="button" value="영상보기"></a>
+                </div>
+                <div id="preview">
+                    <img src="media/메인화면/아야와마녀_bestPlay.jpg">
+                    <p>김윤아 X 아야와 마녀</p>
+                    <a href="https://www.youtube.com/watch?v=Fm4Q3edNVn4" target="_blank"><input type="button" value="영상보기"></a>
+                </div>
+                <div id="preview">
+                    <img src="media/메인화면/500일.jpg">
+                    <p>2021년 특별 예고편</p>
+                    <a href="https://movie.naver.com/movie/bi/mi/mediaView.nhn?code=53152&mid=49363#tab" target="_blank"><input type="button" value="영상보기"></a>
+                </div>
+                </img>
+
+            </div>
+
+        </div>
+
+
+        <div id="news">
+            <div>
+                <span id="span" style="background-color: rgb(240, 236, 230); font-size: 20px;">코로나19로 인해 영화관 거리두기 진행중
+                    입니다. 영화관 입장시 체온측정 및 마스크 착용부탁드립니다. 양해 부탁드립니다. </span>
+            </div>
+        </div>
+        <footer>
+            <div id="f">
+                <div id="bottomImg">
+                    <p>1:1상담</p>
+                    <img src="media\상담.jpg" width="60" alt="1:1상담">
+                </div>
+                <div id="bottomImg">
+                    <p>FAQ</p>
+                    <td><img src="media\Q&A.jpg" width="80" alt="FAQ"></td>
+                </div>
+                <div id="bottomImg">
+                    <p>할인안내</p>
+                    <img src="media\티켓.jpg" width="80" alt="할인안내">
+                </div>
+                <div id="bottomImg">
+                    <p>예매안내</p>
+                    <img src="media\영화.jpg" width="65" alt="예매안내">
+                </div>
+                <div id="bottomImg">
+                    <p>극장안내</p>
+                    <img src="media\극장.jpg" width="70" alt="극장안내">
+                </div>
+            </div>
+            <br>
+            <div id="bottomMenu">
+                <ul>
+                    <li>회사소개</li>
+                    <li>|</li>
+                    <li>인채채용</li>
+                    <li>|</li>
+                    <li>사회공헌</li>
+                    <li>|</li>
+                    <li>이용약관</li>
+                    <li>|</li>
+                    <li>개인정보처리방침</li>
+                    <li>|</li>
+                    <li>윤리경영</li>
+                </ul>
+            </div>
+        </footer>
+</body>
+
+</html>

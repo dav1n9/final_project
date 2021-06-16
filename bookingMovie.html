@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="style_bookingMovie.css" type="text/css" rel="stylesheet">
+    <title>기말 프로젝트</title>
+</head>
+<script>
+    function chageSelect() {
+        var images = [];
+        images[0] = "media/포스터/1808.sm002.007.TS.m000.c5.cinema movie realistic.jpg"
+        images[1] = "media/포스터/캐시트럭.jpg";
+        images[2] = "media/포스터/크루엘라.jpg";
+        images[3] = "media/포스터/아야와마녀.jpg";
+        images[4] = "media/포스터/분노의질주.jpg";
+
+        var found = null;
+        var s = document.getElementById("movie");
+        var img = document.getElementById("posterImg");
+        var i;
+        for (i = 0; i <= s.length; i++) {
+            if (s[i].selected == true) {
+                found = images[i];
+                break;
+            }
+        }
+        img.src = found;
+        // 영화 이름 출력
+        document.getElementById('movieName').innerText = s[i].value;
+
+        // s[0]은 영화가 선택되지 않은 상태임.
+        if (i != 0) {
+            //로컬스토리지에 영화이름 저장
+            localStorage.setItem('movieName', s[i].value);
+            localStorage.setItem('poster', found);
+        }
+        else {
+            localStorage.removeItem('movieName');
+            localStorage.removeItem('poster');
+        }
+
+    }
+
+    function getCheckedTime() {
+        // 선택된 목록 가져오기
+        var t = document.getElementById("time");
+        var i;
+        for (i = 0; i <= t.length; i++) {
+            if (t[i].selected == true) {
+                break;
+            }
+        }
+        // 출력
+        document.getElementById("movieTime").innerText = t[i].value;
+
+        // t[0]은 시간이 선택되지 않은 상태임.
+        if (i != 0) {
+            //로컬스토리지에 영화시간저장
+            localStorage.setItem('movieTime', t[i].value);
+        }
+        else {
+            localStorage.removeItem('movieTime');
+        }
+    }
+
+    function getCheckedCnt() {
+        // 선택된 목록 가져오기
+        const query = 'input[name ="c"]:checked';
+        const selectedElements = document.querySelectorAll(query);
+
+        // 선택된 목록의 갯수 세기
+        const selectedElementsCnt = selectedElements.length;
+
+        // 출력
+        document.getElementById('howMany').innerText = selectedElementsCnt + "명";
+        if (selectedElementsCnt != 0) {
+            // 로컬스토리지에 인원저장
+            localStorage.setItem('people', selectedElementsCnt);
+        }
+        else {  // 0이면 삭제
+            localStorage.removeItem('people');
+        }
+
+    }
+
+    //예매버튼 클릭시 실행되는 함수
+    function getTicket() {
+        var booked = false;
+        if (localStorage.getItem("movieName") && localStorage.getItem("movieTime") && localStorage.getItem("people")) {
+            booked = true;
+        }
+
+        localStorage.getItem("booked", booked);
+        if (booked) {
+            var price = 12000 * parseInt(localStorage.getItem('people'));
+            var p = "12,000 x " + localStorage.getItem('people') + "(명) = " + price + "(원)";
+            var result = confirm(p + "\n예매되었습니다. 티켓을 확인하겠습니까?");
+        }
+        else {
+            if (!localStorage.getItem("movieName")) {
+                alert("영화를 선택하세요.");
+            }
+            else if (!localStorage.getItem("movieTime")) {
+                alert("시간을 선택하세요.");
+            }
+            else if (!localStorage.getItem("people")) {
+                alert("좌석을 선택하세요.");
+            }
+        }
+
+        //티켓부분 완성하기
+        if (result && booked) {
+            window.open('ticket.html', 'windowPop', 'width=400, height=550, left=400, top=400, resizable = yes')
+        }
+
+    }
+
+
+    // 스토리지 전체삭제
+    function clearStr() {
+        window.localStorage.clear();
+        window.open('bookingMovie.html', "_self");
+        alert("예매가 취소되었습니다.");
+    }
+
+    function chkTicket() {
+        if (!localStorage.getItem("movieName")) {
+                alert("영화를 선택하고, 예매 버튼을 누르세요.");
+            }
+        else if (!localStorage.getItem("movieTime")) {
+                alert("시간을 선택하고, 예매 버튼을 누르세요");
+            }
+        else if (!localStorage.getItem("people")) {
+                alert("좌석을 선택하고, 예매 버튼을 누르세요");
+            }
+        else {
+            window.open('ticket.html', 'windowPop', 'width=400, height=550, left=400, top=400, resizable = yes')
+        }
+    }
+
+
+</script>
+
+<body>
+    <div id="container">
+        <header>
+            <div id="logo">
+                <a href="index.html">
+                    <h1>CINEMA</h1>
+                </a>
+            </div>
+            <nav>
+                <ul id="topMenu">
+                    <li><a href="releasedFilm.html" target="_self">예매순위</a></li>
+                    <li><a href="willBeReleased.html" target="_self">개봉예정작</a></li>
+                    <li><a href="bookingMovie.html" target="_self"
+                            style="color:#efb758; background-color: rgb(255, 255, 255); text-shadow: none;">영화예매</a>
+                    </li>
+                    <li><a href="timeTable.html" target="_self">상영시간표</a></li>
+                    <li><a href="voting.html" target="_self">금주의 영화</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="contents">
+            <br><br>
+            <div class="movie-container">
+                <label>영화 :</label>
+                <select id="movie" onchange="chageSelect()">
+                    <option value="선택없음" selected>선택하세요</option>
+                    <option value="캐시트럭">캐시트럭</option>
+                    <option value="크루엘라">크루엘라</option>
+                    <option value="아야와 마녀">아야와 마녀</option>
+                    <option value="분노의 질주">분노의 질주</option>
+                </select>
+                <br>
+                <label>날짜 : <input type='date'></label>
+                <br>
+                <lable>시간 :</lable>
+                <select id="time" onchange="getCheckedTime()">
+                    <option value="00:00" selected>선택하세요</option>
+                    <option value="09:30">09:30</option>
+                    <option value="10:00">10:00</option>
+                    <option value="12:10">12:10</option>
+                    <option value="15:40">15:40</option>
+                    <option value="21:20">21:20</option>
+                    <option value="23:50">23:50</option>
+                </select>
+                <br><br>
+
+                <a href='https://kr.freepik.com/vectors/poster'><img id="posterImg"
+                        src="media/포스터/1808.sm002.007.TS.m000.c5.cinema movie realistic.jpg" width=230px
+                        alt="인기상영작"></a>
+            </div>
+
+            <div class="seats">
+                <div class="s_Text">
+                    <img src="media/노랑.jpg" width=15px height="15px"> 일반 (선택가능)&nbsp; &nbsp;
+                    <img src="media/빨강.jpg" width=15px height="15px"> 선택&nbsp; &nbsp;
+                    <img src="media/회색.jpg" width=15px height="15px"> 예매완료 (선택불가능)
+                </div>
+
+                <div class="screen">
+                    <p>screen</p>
+                </div>
+
+                <div class="seat">
+                    <input type="checkbox" name="c" id="checker1" onclick='getCheckedCnt()'
+                        onclick='storeSeat(1)'><label for="checker1"></label>
+                    <input type="checkbox" name="c" id="checker2" onclick='getCheckedCnt()'
+                        onclick='storeSeat(2)'><label for="checker2"></label>
+                    <input type="checkbox" name="c" id="checker3" onclick='getCheckedCnt()' onclick='storeSeat(3)'
+                        disabled><label for="checker3"></label>
+                    <input type="checkbox" name="c" id="checker4" onclick='getCheckedCnt()'
+                        onclick='storeSeat(4)'><label for="checker4"></label>
+                    <input type="checkbox" name="c" id="checker5" onclick='getCheckedCnt()'
+                        onclick='storeSeat(5)'><label for="checker5"></label>
+                    <br><br><br><br>
+                    <input type="checkbox" name="c" id="checker6" onclick='getCheckedCnt()'
+                        onclick='storeSeat(6)'><label for="checker6"></label>
+                    <input type="checkbox" name="c" id="checker7" onclick='getCheckedCnt()'
+                        onclick='storeSeat(7)'><label for="checker7"></label>
+                    <input type="checkbox" name="c" id="checker8" onclick='getCheckedCnt()'
+                        onclick='storeSeat(8)'><label for="checker8"></label>
+                    <input type="checkbox" name="c" id="checker9" onclick='getCheckedCnt()'
+                        onclick='storeSeat(9)'><label for="checker9"></label>
+                    <input type="checkbox" name="c" id="checker10" onclick='getCheckedCnt()'><label
+                        for="checker10"></label>
+                    <br><br><br><br>
+                    <input type="checkbox" name="c" id="checker11" onclick='getCheckedCnt()'><label
+                        for="checker11"></label>
+                    <input type="checkbox" name="c" id="checker12" onclick='getCheckedCnt()' disabled><label
+                        for="checker12"></label>
+                    <input type="checkbox" name="c" id="checker13" onclick='getCheckedCnt()'><label
+                        for="checker13"></label>
+                    <input type="checkbox" name="c" id="checker14" onclick='getCheckedCnt()'><label
+                        for="checker14"></label>
+                    <input type="checkbox" name="c" id="checker15" onclick='getCheckedCnt()'><label
+                        for="checker15"></label>
+                    <br><br><br><br>
+                    <input type="checkbox" name="c" id="checker16" onclick='getCheckedCnt()'><label
+                        for="checker16"></label>
+                    <input type="checkbox" name="c" id="checker17" onclick='getCheckedCnt()'><label
+                        for="checker17"></label>
+                    <input type="checkbox" name="c" id="checker18" onclick='getCheckedCnt()'><label
+                        for="checker18"></label>
+                    <input type="checkbox" name="c" id="checker19" onclick='getCheckedCnt()'><label
+                        for="checker19"></label>
+                    <input type="checkbox" name="c" id="checker20" onclick='getCheckedCnt()' disabled><label
+                        for="checker20"></label>
+                </div>
+
+                <div class="seat">
+                    <input type="checkbox" name="c" id="checker21" onclick='getCheckedCnt()'><label
+                        for="checker21"></label>
+                    <input type="checkbox" name="c" id="checker22" onclick='getCheckedCnt()'><label
+                        for="checker22"></label>
+                    <input type="checkbox" name="c" id="checker23" onclick='getCheckedCnt()' disabled><label
+                        for="checker23"></label>
+                    <input type="checkbox" name="c" id="checker24" onclick='getCheckedCnt()' disabled><label
+                        for="checker24"></label>
+                    <input type="checkbox" name="c" id="checker25" onclick='getCheckedCnt()'><label
+                        for="checker25"></label>
+                    <br><br><br><br>
+                    <input type="checkbox" name="c" id="checker26" onclick='getCheckedCnt()'><label
+                        for="checker26"></label>
+                    <input type="checkbox" name="c" id="checker27" onclick='getCheckedCnt()'><label
+                        for="checker27"></label>
+                    <input type="checkbox" name="c" id="checker28" onclick='getCheckedCnt()'><label
+                        for="checker28"></label>
+                    <input type="checkbox" name="c" id="checker29" onclick='getCheckedCnt()'><label
+                        for="checker29"></label>
+                    <input type="checkbox" name="c" id="checker30" onclick='getCheckedCnt()'><label
+                        for="checker30"></label>
+                    <br><br><br><br>
+                    <input type="checkbox" name="c" id="checker31" onclick='getCheckedCnt()'><label
+                        for="checker31"></label>
+                    <input type="checkbox" name="c" id="checker32" onclick='getCheckedCnt()' disabled><label
+                        for="checker32"></label>
+                    <input type="checkbox" name="c" id="checker33" onclick='getCheckedCnt()' disabled><label
+                        for="checker33"></label>
+                    <input type="checkbox" name="c" id="checker34" onclick='getCheckedCnt()'><label
+                        for="checker34"></label>
+                    <input type="checkbox" name="c" id="checker35" onclick='getCheckedCnt()'><label
+                        for="checker35"></label>
+                    <br><br><br><br>
+                    <input type="checkbox" name="c" id="checker36" onclick='getCheckedCnt()'><label
+                        for="checker36"></label>
+                    <input type="checkbox" name="c" id="checker37" onclick='getCheckedCnt()'><label
+                        for="checker37"></label>
+                    <input type="checkbox" name="c" id="checker38" onclick='getCheckedCnt()'><label
+                        for="checker38"></label>
+                    <input type="checkbox" name="c" id="checker39" onclick='getCheckedCnt()'><label
+                        for="checker39"></label>
+                    <input type="checkbox" name="c" id="checker40" onclick='getCheckedCnt()'><label
+                        for="checker40"></label>
+                </div>
+            </div>
+        </div>
+
+        <div id="result">
+            <p><span id="movieName">영화를 선택하세요</span>&nbsp | &nbsp<span id="movieTime">시간을 선택하세요</span>&nbsp | &nbsp<span
+                    id="howMany">좌석을 선택하세요</span></p>
+            <button type="button" onclick="getTicket()">예매</button>
+            <button type="button" onclick="clearStr()">예매취소</button>
+            <button type="button" onclick="chkTicket()">티켓확인</button>
+        </div>
+
+        <footer>
+
+        </footer>
+    </div>
+</body>
+
+</html>

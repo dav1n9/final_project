@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ticket</title>
+
+    <script>
+        function ticket() {
+            
+            if (localStorage.getItem('movieName')) {
+                document.getElementById("sendedName").innerHTML = localStorage.getItem('movieName')
+            }
+            if (localStorage.getItem('movieTime')) {
+                document.getElementById("sendedTime").innerHTML = localStorage.getItem('movieTime')
+            }
+            if (localStorage.getItem('people')) {
+                document.getElementById("sendedPeople").innerHTML = localStorage.getItem('people') + "명"
+            }
+            if (localStorage.getItem('poster')) {
+                document.getElementById("posterImg").src = localStorage.getItem('poster')+"";
+            }
+
+            var price = 12000*parseInt(localStorage.getItem('people'));
+            document.getElementById("price").innerHTML = "12,000 x " + localStorage.getItem('people') + "&nbsp;=&nbsp;" + price +"(원)";
+        }
+
+    </script>
+
+    <style>
+        @font-face {
+            font-family: 'twaysky';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twaysky.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        div {
+            float: left;
+            position: relative;
+            left: 40px;
+            border-radius: 10px;
+            border: 2px solid lightgray;
+            text-align: center;
+            padding: 10px;
+            width: 300px;
+            height: 550px;
+            font-family: 'twaysky';
+        }
+
+        h2 {
+            font-size: 3em;
+            border-bottom: 2px dashed gray;
+        }
+        #sendedName {
+            font-size: 1.5em;
+        }
+        p {
+            font-size: 1em;
+        }
+
+        img {
+            border-radius: 10px;
+        }
+        
+    </style>
+</head>
+
+<body onload="ticket()">
+    <div id="t">
+        <h2>TICKET</h2>
+        <p id="sendedName"></p>
+        <p><span id="sendedTime"></span>&nbsp;&nbsp;|&nbsp;&nbsp;<span id="sendedPeople"></span></p>
+        <img id="posterImg" src="#" width=200px>
+        <p id="price"></p>
+    </div>
+
+</body>
+
+</html>

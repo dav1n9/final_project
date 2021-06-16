@@ -1,0 +1,128 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap');
+@font-face {
+    font-family: 'NEXON Lv2 Gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+    src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+header {
+    width : 100%;
+    height: 70px;
+    text-align: center;
+    background-color :#000000;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+}
+
+#logo {
+    width: 27%;
+    height: 70px;
+    float: left;
+}
+#logo h1 {
+    font-family: 'Coda Caption', sans-serif;
+    font-size: 50px;
+    color: #fff;
+}
+nav {
+    float: left;
+    width: 73%;
+    text-align: center;
+    font-family: 'NEXON Lv2 Gothic';
+    font-size: 1em;
+    height: 50px;
+    padding-top: 35px;
+    padding-left: 5px;
+}
+ul {
+    list-style: none;
+}
+
+#topMenu {
+    height: 60px;
+}
+#topMenu > li {
+    float: left;
+    position: relative;
+    font-size: 1.1em;
+}
+#topMenu > li > a {
+    display: block;
+    color : #fff;
+    text-shadow: 0 1px rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 10px 45px;
+}
+#topMenu > li > a:hover {
+    color: #efb758;;
+    text-shadow: 0 -1px rgb(0, 0, 0);
+}
+
+#contents {
+    width: 100%;
+    height: 800px;
+}
+
+
+/*------여기부터 table-------*/
+table {
+    position: relative;
+    left: 100px;
+    top: 50px;
+    font-size: 1em;
+    font-family: 'NanumBarunGothic';
+}
+th, td {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+table td {
+    border-right : 2px solid rgb(165, 165, 165); 
+}
+
+table #movieName {
+    background-color: #ffffff;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+table #place {
+    background-color: #f1f0f0;
+}
+
+
+footer {
+    position :relative;
+    top: 200px;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(20, 18, 18);
+}
